@@ -1,10 +1,13 @@
-const task = (title, description, dueDate, priority, project) => ({
-  title,
-  description,
-  dueDate,
-  priority,
-  project,
-});
+const task = (title, dueDate, priority, projectName) => {
+  const status = false;
+  return {
+    title,
+    dueDate,
+    priority,
+    projectName,
+    status,
+  };
+};
 
 const project = (title, description) => {
   const taskList = [];
@@ -30,6 +33,7 @@ const project = (title, description) => {
   return {
     projectTitle,
     projectDescription,
+    taskList,
     changeTitle,
     changeDescription,
     addTask,
