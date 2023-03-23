@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/prefer-default-export */
-import { updateTaskData, updateProjectData } from "./factories";
+import { updateTaskData, updateProjectData, updateTaskStatus } from "./factories";
 
 
 const DOMupdate = (() => {
@@ -47,6 +47,9 @@ const DOMupdate = (() => {
     status.setAttribute("type", "checkbox");
     status.checked = t.status;
     status.classList.add("name");
+    status.addEventListener("click", ()=>{
+      updateTaskStatus(t);
+    })
 
     taskElement.appendChild(status);
     taskElement.appendChild(name);

@@ -4,7 +4,7 @@ import {ProjectList} from ".";
 import { renderMain, renderSidebar } from "./renderer";
 
 const task = (title, dueDate, priority, projectTitle) => {
-  const status = false;
+  let status = false;
   return {
     title,
     dueDate,
@@ -75,6 +75,15 @@ const updateTaskData = (t, currentProject) =>{
   renderMain(currentProject)
 }
 
+const updateTaskStatus = (t) => {
+  const p = ProjectList.getProject(t.projectTitle);
+  const pI = ProjectList.projects.indexOf(p);
+  const tI = p.taskList.indexOf(t);
+  // console.log(ProjectList.projects[pI].taskList[tI])
+  ProjectList.projects[pI].taskList[tI].status = !ProjectList.projects[pI].taskList[tI].status;
+  // console.log(ProjectList.projects[pI].taskList[tI])
+}
+
 const updateProjectData = (p) =>{
   const newProject = project(p.title, p.description)
   ProjectList.addProject(newProject);
@@ -82,4 +91,4 @@ const updateProjectData = (p) =>{
   renderSidebar(ProjectList);
 }
 
-export { task, project, projectList, updateTaskData, updateProjectData};
+export { task, project, projectList, updateTaskData, updateProjectData, updateTaskStatus};
