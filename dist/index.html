@@ -5,32 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
+    <script src="./bundle.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="content">
-        <div class="header"></div>
         <div class="sidebar">
-            <div class="special">
-                <div class="today"></div>
-                <div class="overdue"></div>
-                <div class="completed"></div>
-            </div>
+           <!-- <div class="special">
+                <div class="today">today</div>
+                <div class="overdue">overdue</div>
+                <div class="completed">completed</div>
+            </div> -->
             <div class="projects">
                 <h3 class="title">Projects</h3>
                 <div class="projectlist">
-
                 </div>
             </div>
+            <button class="addP">Add Project</button>
         </div>
         <div class="main">
             <h2 class="title">Default</h2>
-            <div class="tasklist">
-
+            <div class="taskList">
             </div>
+            <button class="addT">Add Task</button>
         </div>
         <div class="footer">
             
         </div>
+    </div>
+    <div class="formContainer">
+        <div class="form"></div>
     </div>
 </body>
 </html>

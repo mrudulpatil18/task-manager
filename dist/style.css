@@ -1,0 +1,41 @@
+.formContainer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+
+.content{
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 100px
+}
+
+.sidebar{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.tasklist{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.task{
+    display: flex;
+    gap: 40px;
+}
+
+.form{
+    background-color: aquamarine;
+}
+
+.addP,.addT{
+    width: 100px;
+}
