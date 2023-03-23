@@ -1,5 +1,6 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable import/no-cycle */
-import ProjectList from ".";
+import {ProjectList} from ".";
 import { renderMain, renderSidebar } from "./renderer";
 
 const task = (title, dueDate, priority, projectTitle) => {
@@ -55,7 +56,16 @@ const projectList = () => {
   const removeProject = (p) => {
     projects.splice(projects.indexOf(p), 1);
   };
-  return {projects, addProject, removeProject };
+
+  const getProject = (projectT) => {
+    for (let i = 0; i < projects.length; i++) {
+      if (projects[i].projectTitle === projectT) {
+        return projects[i];
+      }
+    }
+    return null;
+  }
+  return {projects, addProject, removeProject, getProject };
 };
 
 
@@ -71,6 +81,5 @@ const updateProjectData = (p) =>{
   console.log(ProjectList.projects)
   renderSidebar(ProjectList);
 }
+
 export { task, project, projectList, updateTaskData, updateProjectData};
-
-

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-plusplus */
 import {DOMupdate} from "./dom"
+import { ProjectList, changeCurrent, getCurrent } from ".";
 
 const renderMain = (p) => {
   DOMupdate.clearMain();
@@ -15,6 +16,10 @@ const renderSidebar = (projectList) =>{
   DOMupdate.clearSidebar()
     for(let i = 0; i < projectList.projects.length; i++){
         const projectElement = DOMupdate.createProjectDisplay(projectList.projects[i]);
+        projectElement.addEventListener("click", () => {
+          changeCurrent(ProjectList.getProject(projectElement.textContent));
+          renderMain(getCurrent());
+        })
         DOMupdate.addToProjectList(projectElement);
     }
 }

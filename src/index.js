@@ -19,7 +19,7 @@ Project2.addTask(task22);
 ProjectList.addProject(Project1);
 ProjectList.addProject(Project2);
 
-const currentProject = Project2;
+let currentProject = Project2;
 renderSidebar(ProjectList);
 renderMain(currentProject);
 
@@ -33,5 +33,12 @@ addP.addEventListener("click", () =>{
     getProjectInput();
 })
 
+function changeCurrent(p) {
+    currentProject = p;
+}
 
-export default ProjectList
+function getCurrent(){
+    return currentProject;
+}
+
+export {ProjectList, changeCurrent, getCurrent}

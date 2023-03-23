@@ -2,6 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 import { updateTaskData, updateProjectData } from "./factories";
 
+
 const DOMupdate = (() => {
   const TitleDisplay = (title) => {
     const TITLE = document.querySelector(".main .title");
@@ -65,6 +66,7 @@ const DOMupdate = (() => {
     const name = document.createElement("div");
     name.textContent = project.projectTitle;
     name.classList.add("name");
+    
     return name;
   }
 
