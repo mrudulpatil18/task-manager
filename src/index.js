@@ -1,7 +1,11 @@
 /* eslint-disable import/no-cycle */
-import {task, project, projectList } from "./factories"
-import { renderMain, renderSidebar, getTaskInput, getProjectInput} from "./renderer";
-
+import { task, project, projectList } from "./factories";
+import {
+  renderMain,
+  renderSidebar,
+  getTaskInput,
+  getProjectInput,
+} from "./renderer";
 
 const ProjectList = projectList();
 const Project1 = project("P1", "testing");
@@ -24,21 +28,21 @@ renderSidebar(ProjectList);
 renderMain(currentProject);
 
 const addT = document.querySelector(".addT");
-addT.addEventListener("click", () =>{
-    getTaskInput(currentProject);
-})
+addT.addEventListener("click", () => {
+  getTaskInput(currentProject);
+});
 
 const addP = document.querySelector(".addP");
-addP.addEventListener("click", () =>{
-    getProjectInput();
-})
+addP.addEventListener("click", () => {
+  getProjectInput();
+});
 
 function changeCurrent(p) {
-    currentProject = p;
+  currentProject = p;
 }
 
-function getCurrent(){
-    return currentProject;
+function getCurrent() {
+  return currentProject;
 }
 
-export {ProjectList, changeCurrent, getCurrent}
+export { ProjectList, changeCurrent, getCurrent };

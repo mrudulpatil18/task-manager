@@ -1,7 +1,10 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/prefer-default-export */
-import { updateTaskData, updateProjectData, updateTaskStatus } from "./factories";
-
+import {
+  updateTaskData,
+  updateProjectData,
+  updateTaskStatus,
+} from "./factories";
 
 const DOMupdate = (() => {
   const TitleDisplay = (title) => {
@@ -9,15 +12,15 @@ const DOMupdate = (() => {
     TITLE.textContent = title;
   };
 
-  const clearMain = () =>{
+  const clearMain = () => {
     const taskList = document.querySelector(".taskList");
     taskList.innerHTML = "";
-  }
+  };
 
-  const clearSidebar = () =>{
+  const clearSidebar = () => {
     const projectList = document.querySelector(".projectlist");
     projectList.innerHTML = "";
-  }
+  };
 
   const createTaskDisplay = (t) => {
     const taskElement = document.createElement("div");
@@ -47,9 +50,9 @@ const DOMupdate = (() => {
     status.setAttribute("type", "checkbox");
     status.checked = t.status;
     status.classList.add("name");
-    status.addEventListener("click", ()=>{
+    status.addEventListener("click", () => {
       updateTaskStatus(t);
-    })
+    });
 
     taskElement.appendChild(status);
     taskElement.appendChild(name);
@@ -65,20 +68,20 @@ const DOMupdate = (() => {
     taskList.appendChild(taskElement);
   };
 
-  const createProjectDisplay = (project)=>{
+  const createProjectDisplay = (project) => {
     const name = document.createElement("div");
     name.textContent = project.projectTitle;
     name.classList.add("name");
-    
+
     return name;
-  }
+  };
 
   const addToProjectList = (projectElement) => {
     const projectList = document.querySelector(".projectlist");
     projectList.appendChild(projectElement);
   };
 
-  const taskForm = (currentProject) =>{
+  const taskForm = (currentProject) => {
     const formE = document.querySelector(".form");
     formE.innerHTML = `<form>
     <label for="title">Title:</label>
@@ -95,26 +98,27 @@ const DOMupdate = (() => {
     </select><br><br>
 
     <input type="submit" value="Submit">
-  </form>`
+  </form>`;
 
-  function handleSubmit(event) {
-    const {projectTitle} = currentProject
-    event.preventDefault();
-    const title = document.querySelector("#title").value;
-    const dueDate = document.querySelector("#dueDate").value;
-    const priority = document.querySelector("#priority").value;
-    console.log(`Title: ${title}, Due Date: ${dueDate}, Priority: ${priority}, ${projectTitle}`);
-    formE.innerHTML = ""
-     const t = {title, dueDate, priority, projectTitle}
-     updateTaskData(t, currentProject);
+    function handleSubmit(event) {
+      const { projectTitle } = currentProject;
+      event.preventDefault();
+      const title = document.querySelector("#title").value;
+      const dueDate = document.querySelector("#dueDate").value;
+      const priority = document.querySelector("#priority").value;
+      console.log(
+        `Title: ${title}, Due Date: ${dueDate}, Priority: ${priority}, ${projectTitle}`
+      );
+      formE.innerHTML = "";
+      const t = { title, dueDate, priority, projectTitle };
+      updateTaskData(t, currentProject);
     }
-   
-  const form = document.querySelector("form");
-   form.addEventListener("submit", handleSubmit);
 
-  }
+    const form = document.querySelector("form");
+    form.addEventListener("submit", handleSubmit);
+  };
 
-  const projectForm = () =>{
+  const projectForm = () => {
     const formE = document.querySelector(".form");
     formE.innerHTML = `<form>
     <label for="title">Title:</label>
@@ -124,21 +128,20 @@ const DOMupdate = (() => {
     <input type="text" id="description" name="description"><br><br>
 
     <input type="submit" value="Submit">
-  </form>`
+  </form>`;
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const title = document.querySelector("#title").value;
-    const description = document.querySelector("#description").value;
-    formE.innerHTML = ""
-     const p = {title, description}
-     updateProjectData(p);
+    function handleSubmit(event) {
+      event.preventDefault();
+      const title = document.querySelector("#title").value;
+      const description = document.querySelector("#description").value;
+      formE.innerHTML = "";
+      const p = { title, description };
+      updateProjectData(p);
     }
-   
-  const form = document.querySelector("form");
-   form.addEventListener("submit", handleSubmit);
 
-  }
+    const form = document.querySelector("form");
+    form.addEventListener("submit", handleSubmit);
+  };
 
   return {
     TitleDisplay,
@@ -149,9 +152,8 @@ const DOMupdate = (() => {
     clearMain,
     taskForm,
     projectForm,
-    clearSidebar
+    clearSidebar,
   };
 })();
 
-
-export {DOMupdate};
+export { DOMupdate };
