@@ -91,10 +91,10 @@ color: #252C32;
     padding-left: 40px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 18px;
+    grid-template-rows: repeat(15,25px);
     align-items: start;
     font-size: 15px;
-    gap: 10px;
+    gap: 15px;
     height: 100vh;
 }
 
@@ -228,11 +228,62 @@ color: #252C32;
 }
 
 .form{
-    background-color: aquamarine;
+    background-color: transparent;
     pointer-events: auto;
-    padding: 100px;
 }
 
 .addP,.addT{
     width: 100px;
 }
+
+form {
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: white;
+    padding: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    margin: 30px;
+    font-size: 20px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  input[type="submit"] {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-left: calc(50% - 50px);
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #187bcd;
+  }
+  
+  input[type="submit"]:active {
+    background-color: #0f5a8c;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #1e90ff;
+  }
