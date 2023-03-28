@@ -8,22 +8,13 @@ import {
 } from "./renderer";
 
 const ProjectList = projectList();
-const Project1 = project("P1", "testing");
-const task11 = task("t1", "2023-03-18", "high", Project1.projectTitle);
-const task12 = task("t2", "2023-03-18", "high", Project1.projectTitle);
-Project1.addTask(task11);
-Project1.addTask(task12);
-
-const Project2 = project("P2", "testing");
-const task21 = task("t21", "2023-03-18", "high", Project2.projectTitle);
-const task22 = task("t22", "2023-03-18", "high", Project2.projectTitle);
-Project2.addTask(task21);
-Project2.addTask(task22);
+const Project1 = project("Default", "default project");
+const task1 = task("task1", "2023-03-18", "high", Project1.projectTitle);
+Project1.addTask(task1);
 
 ProjectList.addProject(Project1);
-ProjectList.addProject(Project2);
 
-let currentProject = Project2;
+let currentProject = Project1;
 renderSidebar(ProjectList);
 renderMain(currentProject);
 
@@ -32,7 +23,7 @@ addT.addEventListener("click", () => {
   getTaskInput(currentProject);
 });
 
-const addP = document.querySelector(".addP");
+const addP = document.querySelector("img.addP");
 addP.addEventListener("click", () => {
   getProjectInput();
 });

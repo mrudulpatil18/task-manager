@@ -1,3 +1,16 @@
+body{
+    margin: 0;
+    background-color: #FAFCFD;
+    height: 100vh;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+.content{
+    margin: 0;
+}
+
 .formContainer{
     position: absolute;
     height: 100%;
@@ -7,33 +20,217 @@
     justify-content: center;
     top: 0;
     left: 0;
-    z-index: -100;
+    pointer-events: none;
 }
 
+
 .content{
-    margin: 50px;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 100px
+    grid-template-columns: 300px 1fr;
 }
 
 .sidebar{
+
     display: grid;
     grid-template-columns: 1fr;
+    background-color: white;
+    border-right: 1px solid #E3E8EE;
+    
 }
 
-.tasklist{
+.temp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.temp img{
+    width: 20px;
+    height: 20px;
+}
+
+.header{
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;   
+    height: 80px; 
+    border-bottom: 1px solid #E3E8EE;
+}
+
+.header .name{
+    width: 55px;
+    height: 24px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 30px;
+    line-height: 24px;
+/* identical to box height, or 133% */
+
+letter-spacing: -0.014em;
+
+color: #252C32;
+
+}
+
+.logo{
+    margin-left: 25px;
+    width: 45px;
+    height: 45px;
+}
+
+.projects{
+    padding-top: 31.5px;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+.projectlist{
+    padding-left: 40px;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 18px;
+    align-items: start;
+    font-size: 15px;
+    gap: 10px;
+    height: 100vh;
 }
+
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+}
+
+.head .title{
+    width: 55px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.head img{
+    width: 20px;
+    height: 20px;
+}
+
+.main{
+    display: grid;
+    grid-template-rows: 150px 1fr;
+}
+
+.top{
+    box-shadow: 0px 0.5px 0px #B6BDC3;
+    padding-left: 35px;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background-color: white;
+}
+.sub{
+    height: 20px;
+
+    /* UI Small / UI Text 12 Reg */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+    color: #5B6871;
+}
+.top .title{
+    height: 48px;
+    /* Headings / Heading 36 Bold */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    /* identical to box height, or 133% */
+
+    letter-spacing: -0.022em;
+
+    color: #252C32;
+
+}
+
+.addT{
+    align-self: flex-end;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0px;
+    gap: 8px;
+
+    width: 133px;
+    height: 40px;
+
+    background: #1458DD;
+    /* gf */
+    border: solid 0px;
+    box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.04), 0px 0px 0px 1px rgba(60, 66, 87, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    font-family: 'Inter';
+    color: #F6F8F9;
+    ;
+}
+
+
+.taskList{
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 40px);
+    gap: 20px;
+    padding: 50px;    
+
+}
+
 
 .task{
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+
+    
+   
+    width: 80%;
+    background-color: #FFFFFF;
+    border: solid #ccd0d2 1px;
+    border-radius: 10px;
+    color: #252C32;
+    font: 12px;
+}
+
+.task .name{
+    font-size: 14;
+    font-weight: bold;
+}
+
+.status{
+    position: relative;
+    left: 50px;
 }
 
 .form{
     background-color: aquamarine;
+    pointer-events: auto;
+    padding: 100px;
 }
 
 .addP,.addT{

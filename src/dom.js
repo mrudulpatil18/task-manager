@@ -49,16 +49,17 @@ const DOMupdate = (() => {
     const status = document.createElement("input");
     status.setAttribute("type", "checkbox");
     status.checked = t.status;
-    status.classList.add("name");
+    status.classList.add("status");
     status.addEventListener("click", () => {
       updateTaskStatus(t);
     });
 
-    taskElement.appendChild(status);
+   
     taskElement.appendChild(name);
     taskElement.appendChild(projectName);
     taskElement.appendChild(due);
     taskElement.appendChild(priority);
+    taskElement.appendChild(status);
 
     return taskElement;
   };
