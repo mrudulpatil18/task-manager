@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable import/no-cycle */
-import { ProjectList } from ".";
+import { ProjectList, saveProjectList } from ".";
 import { renderMain, renderSidebar } from "./renderer";
 
 const task = (title, dueDate, priority, projectTitle) => {
@@ -65,12 +65,32 @@ const projectList = () => {
     }
     return null;
   };
-  return { projects, addProject, removeProject, getProject };
+
+  const toJSON = () => JSON.stringify({ projects });
+
+ 
+
+  return { projects, addProject, removeProject, getProject, toJSON };
+};
+
+const fromJSON = (json) => {
+  const newProjectList = projectList();
+  json.projects.forEach((p) => {
+    const newProject = project(p.projectTitle, p.projectDescription);
+    p.taskList.forEach((t) => {
+      newProject.addTask(
+        task(t.title, t.dueDate, t.priority, newProject.projectTitle)
+      );
+    });
+    newProjectList.addProject(newProject);
+  });
+  return newProjectList;
 };
 
 const updateTaskData = (t, currentProject) => {
   ProjectList.projects[ProjectList.projects.indexOf(currentProject)].addTask(t);
   renderMain(currentProject);
+  saveProjectList(ProjectList);
 };
 
 const updateTaskStatus = (t) => {
@@ -81,12 +101,14 @@ const updateTaskStatus = (t) => {
   ProjectList.projects[pI].taskList[tI].status =
     !ProjectList.projects[pI].taskList[tI].status;
   // console.log(ProjectList.projects[pI].taskList[tI])
+  saveProjectList(ProjectList);
 };
 
 const updateProjectData = (p) => {
   const newProject = project(p.title, p.description);
   ProjectList.addProject(newProject);
   console.log(ProjectList.projects);
+  saveProjectList(ProjectList);
   renderSidebar(ProjectList);
 };
 
@@ -97,4 +119,5 @@ export {
   updateTaskData,
   updateProjectData,
   updateTaskStatus,
+  fromJSON
 };

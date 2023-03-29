@@ -206,9 +206,7 @@ color: #252C32;
     grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
     align-items: center;
     justify-items: center;
-
-    
-   
+    overflow: auto;
     width: 80%;
     background-color: #FFFFFF;
     border: solid #ccd0d2 1px;
